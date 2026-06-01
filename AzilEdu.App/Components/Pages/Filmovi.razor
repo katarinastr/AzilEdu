@@ -1,0 +1,19 @@
+﻿@page "/filmovi"
+
+<h1>Moji omiljeni filmovi</h1>
+
+<ul>
+    @foreach (var film in filmovi)
+    {
+        <li>@film</li>
+    }
+</ul>
+
+@code {
+    List<string> filmovi = new List<string>
+    {
+        "Hobbit",
+        "The Lord of the Rings",
+        "Imitation Game"
+    };
+}

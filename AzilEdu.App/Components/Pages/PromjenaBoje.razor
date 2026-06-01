@@ -1,0 +1,26 @@
+﻿@page "/promjena-boje"
+@rendermode InteractiveServer
+
+<p class="@nazivKlase">
+    Ovo je tekst.
+</p>
+
+<button @onclick="PromijeniBoju">
+    Promijeni boju
+</button>
+
+@code {
+    private string nazivKlase = "tekst-plavi";
+
+    private void PromijeniBoju()
+    {
+        if (nazivKlase == "tekst-plavi")
+        {
+            nazivKlase = "tekst-crveni";
+        }
+        else
+        {
+            nazivKlase = "tekst-plavi";
+        }
+    }
+}

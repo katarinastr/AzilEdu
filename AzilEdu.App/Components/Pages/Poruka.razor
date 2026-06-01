@@ -1,0 +1,24 @@
+﻿@page "/prikaz-poruke"
+@rendermode InteractiveServer
+
+<h1>Prikaz poruke</h1>
+
+<button @onclick="PromijeniPrikaz">
+    Prikaži/Sakrij poruku
+</button>
+
+@if (prikazi)
+{
+    <p class="poruka">
+        Ovo je poruka koja se prikazuje samo kada je varijabla postavljena na true.
+    </p>
+}
+
+@code {
+    private bool prikazi = false;
+
+    private void PromijeniPrikaz()
+    {
+        prikazi = !prikazi;
+    }
+}

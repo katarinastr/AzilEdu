@@ -1,0 +1,13 @@
+﻿@page "/kartica"
+
+<section class="kartica">
+    <h2>@nazivAplikacije</h2>
+    <p>@poruka</p>
+    <p>Status: @status</p>
+</section>
+
+@code {
+    private string nazivAplikacije = "Moja aplikacija";
+    private string poruka = "Dobrodošli u aplikaciju!";
+    private string status = "Aktivna";
+}

@@ -1,0 +1,20 @@
+﻿@page "/punoime"
+@rendermode InteractiveServer
+
+<h1>Unos imena i prezimena</h1>
+
+<label>Ime:</label>
+<input @bind="ime" />
+
+<br />
+<br />
+
+<label>Prezime:</label>
+<input @bind="prezime" />
+
+<p>Puno ime: @ime @prezime</p>
+
+@code {
+    private string ime = "";
+    private string prezime = "";
+}
