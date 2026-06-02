@@ -1,1 +1,69 @@
 ﻿@page "/status"
+
+<MudButton Color="Color.Primary">Spremi</MudButton>
+<MudStack Spacing="1">
+    <MudText Typo="Typo.h4">Species</MudText>
+    <MudText Typo="Typo.subtitle1">Vrste životinja u sustavu</MudText>
+    <MudText Typo="Typo.body1">Ovdje prikazujemo osnovni tekst.</MudText>
+    <MudText Typo="Typo.caption">Manji pomoćni tekst</MudText>
+</MudStack>
+
+<MudStack Spacing="1">
+    <MudText Typo="Typo.h5" Color="Color.Primary">Animals</MudText>
+    <MudText Typo="Typo.h6" Color="Color.Success">Podaci su uspješno spremljeni</MudText>
+    <MudText Typo="Typo.body2" Color="Color.Error">Došlo je do greške</MudText>
+</MudStack>
+
+<MudText Typo="Typo.h4" GutterBottom="true">
+    Species
+</MudText>
+
+<MudText Typo="Typo.body1" Align="Align.Center">
+    Dobro došli u AzilEdu
+</MudText>
+
+<MudPaper Class="pa-4">
+    <MudText Typo="Typo.h5">Animals</MudText>
+    <MudText Typo="Typo.body2">Pregled životinja u azilu.</MudText>
+</MudPaper>
+<MudPaper Class="pa-4 mt-4">
+    Kartica s unutarnjim i vanjskim razmakom
+</MudPaper>
+<MudPaper Class="pa-4" Outlined="true">
+    Kartica s obrubom
+</MudPaper>
+<MudPaper Class="pa-4" Square="true">
+    Oštriji rubovi
+</MudPaper>
+
+@* <MudTable Items="_species">
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Description</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@context.Name</MudTd>
+        <MudTd>@context.Description</MudTd>
+    </RowTemplate>
+</MudTable> *@
+<MudText Typo="Typo.h2">Slike</MudText>
+<MudImage Src="images/bt.webp" Alt="Pas" />
+<MudPaper Class="pa-4" Elevation="2">
+    <MudImage Src="images/dog.jpg"
+              Alt="Pas Rex"
+              Width="250"
+              Class="mb-2" />
+
+    <MudText Typo="Typo.h6">Rex</MudText>
+    <MudText Typo="Typo.body2">
+        Pas star 3 godine, miran i druželjubiv.
+    </MudText>
+
+    <MudButton Variant="Variant.Filled"
+               Color="Color.Primary"
+               Class="mt-2">
+        Detalji
+    </MudButton>
+</MudPaper>
