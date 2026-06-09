@@ -1,46 +1,115 @@
 ﻿@page "/species"
 
-<MudText Typo="Typo.h4">Species</MudText>
-<MudText Typo="Typo.body1">
-    Ovdje će se prikazivati vrste životinja.
+<MudText Typo="Typo.h3" GutterBottom="true">
+    Species
 </MudText>
-<MudStack Spacing="3">
-    <MudText Typo="Typo.h4">Species</MudText>
-    <MudText Typo="Typo.body1">Vrste životinja u sustavu.</MudText>
-    <MudButton Variant="Variant.Filled" Color="Color.Primary">
-        Add Species
-    </MudButton>
-    <MudGrid>
-        <MudItem xs="12" md="4">
-            <MudPaper Class="pa-4">Prva kartica</MudPaper>
-        </MudItem>
-        <MudItem xs="12" md="4">
-            <MudPaper Class="pa-4">Druga kartica</MudPaper>
-        </MudItem>
-        <MudItem xs="12" md="4">
-            <MudPaper Class="pa-4">Treća kartica</MudPaper>
-        </MudItem>
-    </MudGrid>
-</MudStack>
-<MudStack Row="true" Spacing="2">
-    <MudButton>Spremi</MudButton>
-    <MudButton>Odustani</MudButton>
-</MudStack>
-<MudStack Spacing="2">
-    <MudText Typo="Typo.h5">Animals</MudText>
-    <MudText Typo="Typo.body2">Popis životinja u azilu.</MudText>
-</MudStack>
 
-<MudStack Row="true" Spacing="2">
-    <MudButton Color="Color.Primary">Dodaj</MudButton>
-    <MudButton Variant="Variant.Outlined">Pregled</MudButton>
-</MudStack>
+<MudText Typo="Typo.body1" Class="mb-4">
+    Katalog vrsta životinja koje se trenutno prate u sustavu azila.
+    Ovdje se nalaze osnovni podaci o vrstama, njihovim karakteristikama
+    i broju jedinki koje se nalaze u azilu.
+</MudText>
 
-<MudStack Row="true"
-          Justify="Justify.SpaceBetween"
-          AlignItems="AlignItems.Center">
-    <MudText Typo="Typo.h4">Species</MudText>
-    <MudButton Variant="Variant.Filled" Color="Color.Primary">
-        Add Species
-    </MudButton>
-</MudStack>
+<MudGrid>
+
+    <MudItem xs="12" md="6">
+        <MudPaper Class="pa-4 h-100" Elevation="2">
+
+            <MudImage Src="images/pas.jfif"
+                      Alt="Dogs"
+                      Fluid="true"
+                      Class="mb-3" />
+
+            <MudText Typo="Typo.h5">Dogs</MudText>
+
+            <MudText><b>Latinski naziv:</b> Canis lupus familiaris</MudText>
+            <MudText><b>Opis:</b> Domaći pas, najčešća životinja u azilu.</MudText>
+            <MudText><b>Prosječan životni vijek:</b> 10 - 13 godina</MudText>
+            <MudText><b>Prehrana:</b> Omnivor</MudText>
+            <MudText><b>Broj jedinki u azilu:</b> 18</MudText>
+
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Class="mt-3">
+                View Details
+            </MudButton>
+
+        </MudPaper>
+    </MudItem>
+
+    <MudItem xs="12" md="6">
+        <MudPaper Class="pa-4 h-100" Elevation="2">
+
+            <MudImage Src="images/macka.jfif"
+                      Alt="Cats"
+                      Fluid="true"
+                      Class="mb-3" />
+
+            <MudText Typo="Typo.h5">Cats</MudText>
+
+            <MudText><b>Latinski naziv:</b> Felis catus</MudText>
+            <MudText><b>Opis:</b> Domaća mačka, čest stanovnik azila.</MudText>
+            <MudText><b>Prosječan životni vijek:</b> 12 - 18 godina</MudText>
+            <MudText><b>Prehrana:</b> Mesojed</MudText>
+            <MudText><b>Broj jedinki u azilu:</b> 12</MudText>
+
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Class="mt-3">
+                View Details
+            </MudButton>
+
+        </MudPaper>
+    </MudItem>
+
+    <MudItem xs="12" md="6">
+        <MudPaper Class="pa-4 h-100" Elevation="2">
+
+            <MudImage Src="images/zec.jfif"
+                      Alt="Rabbits"
+                      Fluid="true"
+                      Class="mb-3" />
+
+            <MudText Typo="Typo.h5">Rabbits</MudText>
+
+            <MudText><b>Latinski naziv:</b> Oryctolagus cuniculus</MudText>
+            <MudText><b>Opis:</b> Pitomi kunići pogodni za udomljenje.</MudText>
+            <MudText><b>Prosječan životni vijek:</b> 8 - 12 godina</MudText>
+            <MudText><b>Prehrana:</b> Biljojed</MudText>
+            <MudText><b>Broj jedinki u azilu:</b> 7</MudText>
+
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Class="mt-3">
+                View Details
+            </MudButton>
+
+        </MudPaper>
+    </MudItem>
+
+    <MudItem xs="12" md="6">
+        <MudPaper Class="pa-4 h-100" Elevation="2">
+
+            <MudImage Src="images/ptica.jfif"
+                      Alt="Birds"
+                      Fluid="true"
+                      Class="mb-3" />
+
+            <MudText Typo="Typo.h5">Birds</MudText>
+
+            <MudText><b>Latinski naziv:</b> Aves</MudText>
+            <MudText><b>Opis:</b> Različite vrste ptica koje se nalaze u skrbi azila.</MudText>
+            <MudText><b>Prosječan životni vijek:</b> 5 - 20 godina</MudText>
+            <MudText><b>Prehrana:</b> Omnivor</MudText>
+            <MudText><b>Broj jedinki u azilu:</b> 9</MudText>
+
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Class="mt-3">
+                View Details
+            </MudButton>
+
+        </MudPaper>
+    </MudItem>
+
+</MudGrid>
