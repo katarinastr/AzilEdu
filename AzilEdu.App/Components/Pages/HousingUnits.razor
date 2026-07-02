@@ -1,6 +1,9 @@
 ﻿@page "/housing-units"
 @rendermode InteractiveServer
 @using AzilEdu.Shared.Models
+@using System.Net.Http.Json
+
+@inject HttpClient Http
 
 <MudText Typo="Typo.h4" GutterBottom="true">
     Smještajne jedinice
@@ -128,89 +131,93 @@
 
 </MudTable>
 @code {
-
-    private string selectedHousingFilter = "Sve";
-
-    private List<HousingUnit> housingUnits = new()
+    protected override async Task OnInitializedAsync()
     {
-        new HousingUnit
-        {
-            Id = 1,
-            Name = "Boks A1",
-            UnitType = "Dog Box",
-            Capacity = 4,
-            Occupied = 4,
-            LastCleanedAt = DateTime.Now.AddDays(-1),
-            IsActive = true,
-            ImageUrl = "/images/housing-units/box-1.jfif",
-            Note = "Pun boks"
-        },
+        housingUnits = await Http.GetFromJsonAsync<List<HousingUnit>>("api/housingunits")
+                       ?? new List<HousingUnit>();
+    }
+    private string selectedHousingFilter = "Sve";
+    private List<HousingUnit> housingUnits = new();
+    // private List<HousingUnit> housingUnits = new()
+    // {
+    //     new HousingUnit
+    //     {
+    //         Id = 1,
+    //         Name = "Boks A1",
+    //         UnitType = "Dog Box",
+    //         Capacity = 4,
+    //         Occupied = 4,
+    //         LastCleanedAt = DateTime.Now.AddDays(-1),
+    //         IsActive = true,
+    //         ImageUrl = "/images/housing-units/box-1.jfif",
+    //         Note = "Pun boks"
+    //     },
 
-        new HousingUnit
-        {
-            Id = 2,
-            Name = "Boks A2",
-            UnitType = "Dog Box",
-            Capacity = 3,
-            Occupied = 1,
-            LastCleanedAt = DateTime.Now.AddDays(-2),
-            IsActive = true,
-            ImageUrl = "/images/housing-units/box-1.jfif",
-            Note = "Slobodna mjesta"
-        },
+    //     new HousingUnit
+    //     {
+    //         Id = 2,
+    //         Name = "Boks A2",
+    //         UnitType = "Dog Box",
+    //         Capacity = 3,
+    //         Occupied = 1,
+    //         LastCleanedAt = DateTime.Now.AddDays(-2),
+    //         IsActive = true,
+    //         ImageUrl = "/images/housing-units/box-1.jfif",
+    //         Note = "Slobodna mjesta"
+    //     },
 
-        new HousingUnit
-        {
-            Id = 3,
-            Name = "Mačja soba",
-            UnitType = "Cat Room",
-            Capacity = 5,
-            Occupied = 2,
-            LastCleanedAt = null,
-            IsActive = true,
-            ImageUrl = "/images/housing-units/box-2.jfif",
-            Note = "Čišćenje nije uneseno"
-        },
+    //     new HousingUnit
+    //     {
+    //         Id = 3,
+    //         Name = "Mačja soba",
+    //         UnitType = "Cat Room",
+    //         Capacity = 5,
+    //         Occupied = 2,
+    //         LastCleanedAt = null,
+    //         IsActive = true,
+    //         ImageUrl = "/images/housing-units/box-2.jfif",
+    //         Note = "Čišćenje nije uneseno"
+    //     },
 
-        new HousingUnit
-        {
-            Id = 4,
-            Name = "Karantena",
-            UnitType = "Quarantine",
-            Capacity = 2,
-            Occupied = 1,
-            LastCleanedAt = DateTime.Now,
-            IsActive = true,
-            ImageUrl = "/images/housing-units/box-1.jfif",
-            Note = "Nova životinja"
-        },
+    //     new HousingUnit
+    //     {
+    //         Id = 4,
+    //         Name = "Karantena",
+    //         UnitType = "Quarantine",
+    //         Capacity = 2,
+    //         Occupied = 1,
+    //         LastCleanedAt = DateTime.Now,
+    //         IsActive = true,
+    //         ImageUrl = "/images/housing-units/box-1.jfif",
+    //         Note = "Nova životinja"
+    //     },
 
-        new HousingUnit
-        {
-            Id = 5,
-            Name = "Vanjski prostor",
-            UnitType = "Dog Yard",
-            Capacity = 6,
-            Occupied = 3,
-            LastCleanedAt = DateTime.Now.AddDays(-3),
-            IsActive = true,
-            ImageUrl = "/images/housing-units/box-2.jfif",
-            Note = "Poluprazan"
-        },
+    //     new HousingUnit
+    //     {
+    //         Id = 5,
+    //         Name = "Vanjski prostor",
+    //         UnitType = "Dog Yard",
+    //         Capacity = 6,
+    //         Occupied = 3,
+    //         LastCleanedAt = DateTime.Now.AddDays(-3),
+    //         IsActive = true,
+    //         ImageUrl = "/images/housing-units/box-2.jfif",
+    //         Note = "Poluprazan"
+    //     },
 
-        new HousingUnit
-        {
-            Id = 6,
-            Name = "Stari boks",
-            UnitType = "Dog Box",
-            Capacity = 4,
-            Occupied = 0,
-            LastCleanedAt = DateTime.Now.AddDays(-10),
-            IsActive = false,
-            ImageUrl = "/images/housing-units/box-1.jfif",
-            Note = "Ne koristi se"
-        }
-    };
+    //     new HousingUnit
+    //     {
+    //         Id = 6,
+    //         Name = "Stari boks",
+    //         UnitType = "Dog Box",
+    //         Capacity = 4,
+    //         Occupied = 0,
+    //         LastCleanedAt = DateTime.Now.AddDays(-10),
+    //         IsActive = false,
+    //         ImageUrl = "/images/housing-units/box-1.jfif",
+    //         Note = "Ne koristi se"
+    //     }
+    // };
 
     private int TotalHousingUnits => housingUnits.Count;
 

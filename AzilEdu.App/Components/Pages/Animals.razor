@@ -1,84 +1,9 @@
-﻿@* @page "/animals"
-
-<MudText Typo="Typo.h4">Animals</MudText>
-<MudText Typo="Typo.body1">Popis životinja u azilu</MudText>
-<hr />
-<MudText Typo="Typo.h3" GutterBottom="true">
-    Animals
-</MudText>
-
-<MudText Typo="Typo.body1" Class="mb-4">
-    Pregled životinja koje se nalaze u sustavu azila.
-</MudText>
-
-<MudPaper Class="pa-4" Elevation="2">
-    <MudText Typo="Typo.h5">Životinje u azilu</MudText>
-    <MudText Typo="Typo.body2">
-        Ovdje će se kasnije prikazivati osnovni podaci o životinjama.
-    </MudText>
-</MudPaper>
-
-<MudGrid>
-    <MudItem xs="12" md="4">
-        <MudPaper Class="pa-4" Elevation="2">
-            <MudText Typo="Typo.h6">Sve životinje</MudText>
-            <MudText Typo="Typo.body2">
-                Pregled svih životinja evidentiranih u azilu.
-            </MudText>
-        </MudPaper>
-    </MudItem>
-
-    <MudItem xs="12" md="4">
-        <MudPaper Class="pa-4" Elevation="2">
-            <MudText Typo="Typo.h6">Vrste i pasmine</MudText>
-            <MudText Typo="Typo.body2">
-                Organizacija životinja prema vrstama i pasminama.
-            </MudText>
-        </MudPaper>
-    </MudItem>
-
-    <MudItem xs="12" md="4">
-        <MudPaper Class="pa-4" Elevation="2">
-            <MudText Typo="Typo.h6">Smještaj</MudText>
-            <MudText Typo="Typo.body2">
-                Pregled bokseva, kaveza i drugih smještajnih jedinica.
-            </MudText>
-        </MudPaper>
-    </MudItem>
-</MudGrid>
-<MudButton StartIcon="@Icons.Material.Filled.Add"
-           Variant="Variant.Filled"
-           Color="Color.Primary">
-    Dodaj
-</MudButton>
-
-<MudButton EndIcon="@Icons.Material.Filled.ArrowForward"
-           Variant="Variant.Outlined"
-           Color="Color.Secondary">
-    Nastavi
-</MudButton>
-<MudStack Row="true" Spacing="2">
-    <MudButton Variant="Variant.Filled" Color="Color.Primary">
-        Add Species
-    </MudButton>
-
-    <MudButton Variant="Variant.Outlined" Color="Color.Secondary">
-        Pregled vrsta
-    </MudButton>
-
-    <MudButton Variant="Variant.Text" Color="Color.Info">
-        Saznaj više
-    </MudButton>
-
-    <MudButton Variant="Variant.Filled"
-               Color="Color.Success"
-               Size="Size.Large"
-               StartIcon="@Icons.Material.Filled.Check">
-        Spremi
-    </MudButton>
-</MudStack> *@
-
+﻿
 @page "/animals"
+@rendermode InteractiveServer
+@using AzilEdu.Shared.Models
+@using System.Net.Http.Json
+@inject HttpClient Http
 
 <MudText Typo="Typo.h3" GutterBottom="true">
     Animals
@@ -217,4 +142,11 @@
 
 </MudGrid>
 
-
+@code{
+    private List<Animal> animals = new();
+    protected override async Task OnInitializedAsync()
+    {
+        List<Animal>? result = await Http.GetFromJsonAsync<List<Animal>>("api/animals");
+        animals = result ?? new List<Animal>();
+    }
+}
